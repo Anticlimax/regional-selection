@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.14
 import QtQuick.Window 2.15
 import custom.framelessWindow 1.0
 
+
 ApplicationWindow {
     id: mainWindow
 
@@ -11,7 +12,7 @@ ApplicationWindow {
     property var screenHeight: Screen.height
 
     visible: true
-    color: "gray"
+    color: "transparent"
     x: 0
     y: 0
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
@@ -108,28 +109,17 @@ ApplicationWindow {
         height: 480
         minimumWidth: 480
         minimumHeight: 320
-        color: "#000"
+        color: "red"
         title: qsTr("Hello World")
 
         Rectangle {
-            width: 100
-            height: 100
+            anchors.fill: parent
             anchors.centerIn: parent
             color: "red"
 
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
-                onEntered: {
-                    cursorShape = Qt.PointingHandCursor;
-                    parent.color = "blue";
-                }
-                onExited: {
-                    cursorShape = Qt.ArrowCursor;
-                    parent.color = "red";
-                }
-                onPressed: parent.color = "yellow"
-                onReleased: parent.color = "blue"
             }
 
         }

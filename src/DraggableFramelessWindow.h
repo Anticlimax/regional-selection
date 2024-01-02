@@ -38,6 +38,9 @@ private:
 
     void setWindowGeometry(const QPoint &pos);
     void setCursorIcon();
+    void addFlags(Qt::WindowFlags flags);
+    void removeFlags(Qt::WindowFlags flags);
+    bool existFlags(Qt::WindowFlags flags);
 
     bool m_resizable = false;
 
@@ -45,7 +48,10 @@ private:
     QPoint m_startPos;
     QPoint m_oldPos;
     QSize m_oldSize;
+    // 拖动有效边距
     int pan = 8;
+    // 默认窗口flags
+    Qt::WindowFlags defaultFlags = Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint ;
 };
 
 #endif // DRAGGABLEFRAMELESSWINDOW_H
